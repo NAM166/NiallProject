@@ -255,38 +255,7 @@ namespace WhatToEat.Controllers
 
             }
         }
-
-        //        public ActionResult DailyCaloriePartial()
-        //{
-        //    // Init DiaryVM
-        //    DiaryVM model = new DiaryVM();
-
-        //    // Init Calorie
-        //    int dailycalorie = 0;
-
-        //    // Check for diary session
-        //    if (Session["diary"] != null)
-        //    {
-        //        // Get total qty and Calorie
-        //        var list = (List<DiaryVM>)Session["diary"];
-
-        //        foreach (var item in list)
-        //        {
-        //            dailycalorie += item.DailyCalorie;
-        //        }
-
-        //        model.DailyCalorie = dailycalorie;
-
-        //    }
-        //    else
-        //    {
-        //        // Or set Calorie to 0
-        //        model.DailyCalorie = 1;
-        //    }
-
-        //    // Return partial view with model
-        //    return PartialView(model);
-        //}
+        
     }
     }
 
