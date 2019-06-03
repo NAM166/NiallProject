@@ -1,0 +1,10 @@
+﻿@model IEnumerable<WhatToEat.Models.ViewModels.Eatery.CategoryVM>
+
+<h3>Eatery</h3>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li><a href="/eatery/category/@item.Slug.ToLower()">@item.Name</a></li>
+    }
+</ul>

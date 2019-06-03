@@ -1,0 +1,209 @@
+﻿@model IEnumerable<WhatToEat.Models.ViewModels.Diary.DiaryVM>
+
+@{
+    ViewBag.Title = "Diary Details";
+    int count = 1;
+}
+
+<h2>Diary Details</h2>
+
+@if (ViewBag.Message != null)
+{
+    <h3>@ViewBag.Message</h3>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                Calories
+            </th>
+            <th>
+                Image
+            </th>
+            <th>
+
+            </th>
+            <th>
+                Total Calories
+            </th>
+            <th>
+
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td class="qty@(item.ProductId)">
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Calorie)
+                </td>
+                <td>
+                    <img src="/Images/Uploads/Products/@item.ProductId/Thumbs/@item.Image" />
+                </td>
+                <td>
+                    <a href="#" class="incrproduct" data-id="@item.ProductId">+</a>
+                    <a href="#" class="decrproduct" data-id="@item.ProductId">-</a>
+                    <a href="#" class="removeproduct" data-id="@item.ProductId">Remove</a>
+                </td>
+                <td class="total@(item.ProductId)">
+                    @Html.DisplayFor(modelItem => item.Total)
+                </td>
+            </tr>
+        }
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="grandtotal"><b>Total Calories</b> <span>@ViewBag.GrandTotal</span></td>
+        </tr>
+
+    </table>
+    <br />
+    <a href="#" class="placeorder btn btn-primary pull-right">Select</a>
+
+}
+
+@section Scripts {
+    <script>
+
+$(function () {
+
+    /*
+    * Increment product
+    */
+
+    $("a.incrproduct").click(function (e) {
+        e.preventDefault();
+
+        var productId = $(this).data("id");
+        var url = "/diary/IncrementProduct";
+
+        $.getJSON(url, { productId: productId }, function (data) {
+
+            $("td.qty" + productId).html(data.qty);
+
+            var calorie = data.qty * data.calorie;
+            var calorieHtml = "Calorie" + calorie.toFixed(2);
+
+            $("td.total" + productId).html(calorieHtml);
+
+            var gt = parseFloat($("td.grandtotal span").text());
+            var grandtotal = (gt + data.calorie).toFixed(2);
+
+            $("td.grandtotal span").text(grandtotal);
+        }).done(function (data) {
+            var url2 = "/diary/DiaryPartial";
+
+            $.get(url2, { }, function (data) {
+                $('div.diarydiv').html(data);
+            });
+        });
+    });
+
+    //////////////////////////////////////////////////////////////
+
+    /*
+    * Decrement product
+    */
+
+    $("a.decrproduct").click(function (e) {
+        e.preventDefault();
+
+        var $this = $(this);
+        var productId = $(this).data("id");
+        var url = "/diary/DecrementProduct";
+
+        $.getJSON(url, { productId: productId }, function (data) {
+            if (data.qty == 0) {
+                $this.parent().parent().fadeOut("fast", function () {
+                    location.reload();
+                });
+            }
+            else {
+                $("td.qty" + productId).html(data.qty);
+
+                var calorie = data.qty * data.calorie;
+                var calorieHtml = "Calorie" + calorie.toFixed(2);
+
+                $("td.total" + productId).html(calorieHtml);
+
+                var gt = parseFloat($("td.grandtotal span").text());
+                var grandtotal = (gt - data.calorie).toFixed(2);
+
+                $("td.grandtotal span").text(grandtotal);
+            }
+
+        }).done(function (data) {
+            var url2 = "/diary/DiaryPartial";
+
+            $.get(url2, {}, function (data) {
+                $('div.diarydiv').html(data);
+            });
+        });
+    });
+
+    //////////////////////////////////////////////////////////////
+
+    /*
+    * Remove product
+    */
+
+    $("a.removeproduct").click(function (e) {
+        e.preventDefault();
+
+        var $this = $(this);
+        var productId = $(this).data("id");
+        var url = "/diary/RemoveProduct";
+
+        $.get(url, { productId: productId }, function (data) {
+            location.reload();
+        });
+    });
+
+    //////////////////////////////////////////////////////////////
+
+    /*
+    * Place order
+    */
+
+    $("a.placeorder").click(function (e) {
+        e.preventDefault();
+
+        var $this = $(this);
+
+        var url = "/diary/PlaceOrder";
+
+        $(".ajaxbg").show();
+
+        $.post(url, { }, function (data) {
+            $(".ajaxbg span").text("Thank you. Your Selection has been added to your Diary.");
+            setTimeout(function () {
+                $('form input[name="submit"]').click();
+            }, 2000);
+        });
+    });
+
+    //////////////////////////////////////////////////////////////
+
+});
+
+    </script>
+
+}
