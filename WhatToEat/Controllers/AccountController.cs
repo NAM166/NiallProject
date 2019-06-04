@@ -172,7 +172,8 @@ namespace WhatToEat.Controllers
                 model = new UserNavPartialVM()
                 {
                     FirstName = dto.FirstName,
-                    LastName = dto.LastName
+                    LastName = dto.LastName,
+                    DailyCalorie = dto.DailyCalorie
                 };
             }
 

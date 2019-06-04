@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace WhatToEat.Models.ViewModels.Account
 {
@@ -9,5 +10,7 @@ namespace WhatToEat.Models.ViewModels.Account
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public int DailyCalorie { get; set; }
+       
     }
 }
