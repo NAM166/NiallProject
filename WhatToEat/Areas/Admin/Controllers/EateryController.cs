@@ -572,7 +572,7 @@ namespace WhatToEat.Areas.Admin.Controllers
                     // Get username
                     UserDTO user = db.Users.Where(x => x.Id == order.UserId).FirstOrDefault();
                     string username = user.Username;
-
+                   
                     // Loop through list of OrderDetailsDTO
                     foreach (var orderDetails in orderDetailsList)
                     {

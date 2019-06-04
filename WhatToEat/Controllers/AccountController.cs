@@ -247,6 +247,7 @@ namespace WhatToEat.Controllers
                 dto.FirstName = model.FirstName;
                 dto.LastName = model.LastName;
                 dto.EmailAddress = model.EmailAddress;
+                dto.DailyCalorie = model.DailyCalorie;
                 dto.Username = model.Username;
 
                 if (!string.IsNullOrWhiteSpace(model.Password))
