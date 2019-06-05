@@ -9,6 +9,7 @@ using System.Web.Helpers;
 using System.Web.Mvc;
 using WhatToEat.Models.Data;
 using WhatToEat.Models.ViewModels.Eatery;
+using System.Net;
 
 namespace WhatToEat.Areas.Admin.Controllers
 {
@@ -571,9 +572,11 @@ namespace WhatToEat.Areas.Admin.Controllers
 
                     // Get username
                     UserDTO user = db.Users.Where(x => x.Id == order.UserId).FirstOrDefault();
-                    string username = user.Username;
                    
-                    // Loop through list of OrderDetailsDTO
+                     string username = user.Username;
+                    
+                    
+                    // Loop through list of OrderDetailsDTOUser
                     foreach (var orderDetails in orderDetailsList)
                     {
                         // Get product
