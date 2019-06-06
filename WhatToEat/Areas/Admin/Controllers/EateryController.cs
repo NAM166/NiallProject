@@ -572,10 +572,9 @@ namespace WhatToEat.Areas.Admin.Controllers
 
                     // Get username
                     UserDTO user = db.Users.Where(x => x.Id == order.UserId).FirstOrDefault();
-                   
-                     string username = user.Username;
-                    
-                    
+
+
+
                     // Loop through list of OrderDetailsDTOUser
                     foreach (var orderDetails in orderDetailsList)
                     {
@@ -583,7 +582,7 @@ namespace WhatToEat.Areas.Admin.Controllers
                         ProductDTO product = db.Products.Where(x => x.Id == orderDetails.ProductId).FirstOrDefault();
 
                         // Get product calorie
-                        int calorie= product.Calorie;
+                        int calorie = product.Calorie;
 
                         // Get product name
                         string productName = product.Name;
@@ -595,6 +594,8 @@ namespace WhatToEat.Areas.Admin.Controllers
                         total += orderDetails.Quantity * calorie;
                     }
 
+
+                    string username = user.Username;
                     // Add to ordersForAdminVM list
                     ordersForAdmin.Add(new OrdersForAdminVM()
                     {
