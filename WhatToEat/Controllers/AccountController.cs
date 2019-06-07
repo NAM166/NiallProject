@@ -44,7 +44,7 @@ namespace WhatToEat.Controllers
         public ActionResult Login(LoginUserVM model)
         {
             // Check model state
-            if (!ModelState.IsValid)
+            if (! ModelState.IsValid)
             {
                 return View(model);
             }
@@ -268,7 +268,7 @@ namespace WhatToEat.Controllers
         }
 
         // GET: /account/Orders
-        [Authorize(Roles = "User")]
+        [Authorize(Roles="User")]
         public ActionResult Orders()
         {
             // Init list of OrdersForUserVM
