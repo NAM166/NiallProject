@@ -251,6 +251,11 @@ namespace WhatToEat.Controllers
                     db.OrderDetails.Add(orderDetailsDTO);
 
                     db.SaveChanges();
+
+                    // Reset session
+                    Session["diary"] = null;
+
+
                 }
 
             }
