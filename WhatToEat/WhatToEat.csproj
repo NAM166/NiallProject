@@ -175,6 +175,13 @@
     <Content Include="App_Data\WhatToEat_log.ldf">
       <DependentUpon>WhatToEat.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\bootstrap-blue.css" />
+    <Content Include="Content\bootstrap-cosmo.css" />
+    <Content Include="Content\bootstrap-dark.css" />
+    <Content Include="Content\bootstrap-orange.css" />
+    <Content Include="Content\bootstrap-simplex.css" />
+    <Content Include="Content\bootstrap-slate.css" />
+    <Content Include="Content\bootstrap-spacelab.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fancybox\blank.gif" />
@@ -189,6 +196,7 @@
     <Content Include="Content\jquery.fancybox-thumbs.css" />
     <Content Include="Content\jquery.fancybox.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\bootstrap-sketchy .css" />
     <Content Include="favicon.ico" />
     <Content Include="fileman\css\images\animated-overlay.gif" />
     <Content Include="fileman\css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
