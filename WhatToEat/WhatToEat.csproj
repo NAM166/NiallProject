@@ -525,6 +525,8 @@
     <Content Include="Areas\Admin\Views\Eatery\Orders.cshtml" />
     <None Include="Properties\PublishProfiles\WhatToEat1 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\WhatToEat1 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\WhatToEat20190608123001 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\WhatToEat3 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ckeditor\ckeditor_source.js" />
     <Content Include="Scripts\ckeditor\config.js" />
