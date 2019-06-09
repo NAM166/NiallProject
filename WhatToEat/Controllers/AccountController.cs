@@ -15,7 +15,6 @@ using WhatToEat.Models.ViewModels.Eatery;
 
 namespace WhatToEat.Controllers
 {
-
     public class AccountController : Controller
     {
         // GET: Account
@@ -180,7 +179,6 @@ namespace WhatToEat.Controllers
             // Return partial view with model
             return PartialView(model);
         }
-
 
         // GET: /account/user-profile
         [HttpGet]
