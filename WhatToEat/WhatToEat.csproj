@@ -140,7 +140,6 @@
     <Compile Include="Areas\Admin\Controllers\PagesController.cs" />
     <Compile Include="Areas\Admin\Controllers\EateryController.cs" />
     <Compile Include="Areas\Admin\Models\ViewModels\Eatery\OrdersForAdminVM.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DiaryController.cs" />
     <Compile Include="Controllers\PagesController.cs" />
