@@ -52,9 +52,8 @@ else
 
 $(function () {
 
-    /*
-    * Add new category
-    */
+    // Add new category
+ 
 
     var newCatA = $("a#newcata");
     var newCatTextInput = $("#newcatname");
@@ -119,11 +118,8 @@ $(function () {
         });
     });
 
-    //////////////////////////////////////////////////////////////
 
-    /*
-    * Reorder categories
-    */
+    //Reorder categories
 
     $("table#pages tbody").sortable({
         items: "tr:not(.home)",
@@ -137,22 +133,16 @@ $(function () {
         }
     });
 
-    //////////////////////////////////////////////////////////////
-
-
-    /*
-    * Confirm category deletion
-    */
+    //Confirm category deletion
 
     $("body").on("click", "a.delete", function () {
         if (!confirm("Confirm page deletion")) return false;
     });
 
-    //////////////////////////////////////////////////////////////
+ 
 
-    /*
-    * Rename category
-    */
+    //Rename category
+    
 
     var originalTextBoxValue;
 
@@ -201,8 +191,6 @@ $(function () {
         });
 
     });
-
-    //////////////////////////////////////////////////////////////
 
 
 });

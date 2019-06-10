@@ -1,3 +1,0 @@
-<connectionStrings>
-    <add name="DBNAME" connectionString="Server=(localdb)\MSSQLLocalDb;Integrated Security=true;AttachDbFileName=|DataDirectory|\DBNAME.mdf;" providerName="System.Data.SqlClient" />
-  </connectionStrings>

@@ -62,19 +62,16 @@ else
 
 $(function () {
 
-    /*
-    * Confirm page deletion
-    */
+    //Confirm page deletion
+
 
     $("a.delete").click(function () {
         if (!confirm("Confirm page deletion")) return false;
     });
 
-    //////////////////////////////////////////////////////////////
 
-    /*
-    * Reorder pages
-    */
+    //Reorder pages
+ 
 
     $("table#pages tbody").sortable({
         items: "tr:not(.home)",
@@ -88,7 +85,7 @@ $(function () {
         }
     });
 
-    //////////////////////////////////////////////////////////////
+   
 });
 
     </script>

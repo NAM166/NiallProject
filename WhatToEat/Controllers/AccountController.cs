@@ -305,7 +305,7 @@ namespace WhatToEat.Controllers
                         // Get product name
                         string productName = product.Name;
 
-                        // Add to products dict
+                        // Add to products 
                         productsAndQty.Add(productName, orderDetails.Quantity);
 
                         // Get total
