@@ -19,12 +19,12 @@ namespace WhatToEat.Areas.Admin.Controllers
         // GET: Admin/Eatery/Categories
         public ActionResult Categories()
         {
-            // Declare a list of models
+            // Declare list of models
             List<CategoryVM> categoryVMList;
 
             using (Db db = new Db())
             {
-                // Init the list
+                // Initiate that list
                 categoryVMList = db.Categories
                                 .ToArray()
                                 .OrderBy(x => x.Sorting)
@@ -49,7 +49,7 @@ namespace WhatToEat.Areas.Admin.Controllers
                 if (db.Categories.Any(x => x.Name == catName))
                     return "titletaken";
 
-                // Init DTO
+                // Initiate DTO
                 CategoryDTO dto = new CategoryDTO();
 
                 // Add to DTO
@@ -143,7 +143,7 @@ namespace WhatToEat.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult AddProduct()
         {
-            // Init model
+            // Initiate model
             ProductVM model = new ProductVM();
 
             // Add select list of categories to model
@@ -184,7 +184,7 @@ namespace WhatToEat.Areas.Admin.Controllers
             // Declare product id
             int id;
 
-            // Init and save productDTO
+            // Initiate and save productDTO
             using (Db db = new Db())
             {
                 ProductDTO product = new ProductDTO();
@@ -256,7 +256,7 @@ namespace WhatToEat.Areas.Admin.Controllers
                     }
                 }
 
-                // Init image name
+                // Initiate image name
                 string imageName = file.FileName;
 
                 // Save image name to DTO
@@ -298,7 +298,7 @@ namespace WhatToEat.Areas.Admin.Controllers
 
             using (Db db = new Db())
             {
-                // Init the list
+                // Initiate the list
                 listOfProductVM = db.Products.ToArray()
                                   .Where(x => catId == null || catId == 0 || x.CategoryId == catId)
                                   .Select(x => new ProductVM(x))
@@ -311,7 +311,7 @@ namespace WhatToEat.Areas.Admin.Controllers
                 ViewBag.SelectedCat = catId.ToString();
             }
 
-            // Set page initation
+            // Set page Init
             var onePageOfProducts = listOfProductVM.ToPagedList(pageNumber, 3);
             ViewBag.OnePageOfProducts = onePageOfProducts;
 
@@ -337,7 +337,7 @@ namespace WhatToEat.Areas.Admin.Controllers
                     return Content("That product does not exist.");
                 }
 
-                // init model
+                // Initiate model
                 model = new ProductVM(dto);
 
                 // Make a select list
@@ -505,7 +505,7 @@ namespace WhatToEat.Areas.Admin.Controllers
             // Loop through files
             foreach (string fileName in Request.Files)
             {
-                // Init the file
+                // Initiate the file
                 HttpPostedFileBase file = Request.Files[fileName];
 
                 // Check it's not null
@@ -550,24 +550,24 @@ namespace WhatToEat.Areas.Admin.Controllers
         // GET: Admin/Eatery/Orders
         public ActionResult Orders()
         {
-            // Init list of OrdersForAdminVM
+            // Initiate list of OrdersForAdminVM
             List<OrdersForAdminVM> ordersForAdmin = new List<OrdersForAdminVM>();
 
             using (Db db = new Db())
             {
-                // Init list of OrderVM
+                // Initiate list of OrderVM
                 List<OrderVM> orders = db.Orders.ToArray().Select(x => new OrderVM(x)).ToList();
 
                 // Loop through list of OrderVM
                 foreach (var order in orders)
                 {
-                    // Init product 
+                    // Initiate product 
                     Dictionary<string, int> productsAndQty = new Dictionary<string, int>();
 
                     // Declare total
                     int total = 0;
 
-                    // Init list of OrderDetailsDTO
+                    // Initiate list of OrderDetailsDTO
                     List<OrderDetailsDTO> orderDetailsList = db.OrderDetails.Where(X => X.OrderId == order.OrderId).ToList();
 
                     // Get username

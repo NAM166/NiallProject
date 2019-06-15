@@ -19,7 +19,7 @@ namespace WhatToEat.Areas.Admin.Controllers
 
             using (Db db = new Db())
             {
-                // Init the list
+                // Initiate the list
                 pagesList = db.Pages.ToArray().OrderBy(x => x.Sorting).Select(x => new PageVM(x)).ToList();
             }
 
@@ -49,7 +49,7 @@ namespace WhatToEat.Areas.Admin.Controllers
                 // Declare slug
                 string slug;
 
-                // Init pageDTO
+                // Initiate pageDTO
                 PageDTO dto = new PageDTO();
 
                 // DTO title
@@ -108,7 +108,7 @@ namespace WhatToEat.Areas.Admin.Controllers
                     return Content("The page does not exist.");
                 }
 
-                // Init pageVM
+                // Initiate pageVM
                 model = new PageVM(dto);
             }
 
@@ -131,7 +131,7 @@ namespace WhatToEat.Areas.Admin.Controllers
                 // Get page id
                 int id = model.Id;
 
-                // Init slug
+                // Initiate slug
                 string slug = "home";
 
                 // Get the page
@@ -194,7 +194,7 @@ namespace WhatToEat.Areas.Admin.Controllers
                     return Content("The page does not exist.");
                 }
 
-                // Init PageVM
+                // Initiate PageVM
                 model = new PageVM(dto);
             }
 
@@ -227,7 +227,7 @@ namespace WhatToEat.Areas.Admin.Controllers
         {
             using (Db db = new Db())
             {
-                // Set initial count
+                // Set Initial count
                 int count = 1;
 
                 // Declare PageDTO
@@ -259,7 +259,7 @@ namespace WhatToEat.Areas.Admin.Controllers
                 // Get the DTO
                 SidebarDTO dto = db.Sidebar.Find(1);
 
-                // Init model
+                // Initiate model
                 model = new SidebarVM(dto);
             }
 
